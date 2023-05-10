@@ -74,7 +74,7 @@ if __name__ == "__main__":
     print(stack)
 
     # Pop last item from stack
-    stack.pop()
+    print(stack.pop())
 
     # Print stack again and check last item is removed or not
     print(stack)
