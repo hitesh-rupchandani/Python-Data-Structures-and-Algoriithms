@@ -1,0 +1,77 @@
+from typing import Any
+
+class Stack:
+    """
+        This stack class
+    """
+
+    def __init__(self) -> None:
+        """
+            Initialize internal list
+        """
+        self.__items = []
+
+    def is_empty(self) -> bool:
+        """
+            Returns whether the stack is empty - Time Complexity: O(1)
+        """
+        return not self.__items
+    
+    def push(self, item: Any) -> None:
+        """
+            Inserts the element item at the top of the stack - Time Complexity: O(1)
+        """
+        self.__items.append(item)
+
+    def pop(self) -> None:
+        """
+            Deletes the topmost element of the stack - Time Complexity: O(1)
+        """
+        if not self.__items:
+            raise Exception("pop() called on empty stack.")
+        
+        return self.__items.pop()
+
+    def peek(self) -> Any:
+        """"
+            Returns a reference to the topmost element of the stack - Time Complexity: O(1)
+        """
+        if not self.__items:
+            raise Exception("peek() called on empty stack.")
+        
+        return self.__items[-1]
+    
+    def size(self) -> int:
+        """
+            Returns the size of the stack - Time Complexity: O(1)
+        """
+        return len(self.__items)
+    
+    def __str__(self) -> str:
+        """
+            Return contents of stack
+        """
+        return str(self.__items)
+
+if __name__ == "__main__":
+        
+    string = "elpmaxe esrever kcats si sihT"
+
+    my_stack = Stack()
+    reverse_stack = Stack()
+
+    # Adding characters in my_stack
+    for char in string:
+        my_stack.push(char)
+
+    print(my_stack)
+
+    # Reverse String using pop method of stack
+    while not my_stack.is_empty():
+        try:
+            reverse_stack.push(my_stack.pop())
+        except Exception:
+            pass
+    
+    print(reverse_stack)
+
